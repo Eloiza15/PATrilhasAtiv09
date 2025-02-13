@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicios
+{
+    class Program
+    {
+        public static void Main()
+        {
+        	
+        //Crie uma lista de inteiros e use o foreach para encontrar o maior número na lista.
+        
+        List <int> numeros = new List<int>();
+     
+            numeros.Add(30);
+            numeros.Add(20);
+            numeros.Add(10);
+            numeros.Add(50);
+            numeros.Add(40);
+        
+        int maiorNum = numeros[0];
+        
+        foreach(int numero in numeros){
+        	
+        	if ( numero > maiorNum ){
+        		
+        		maiorNum = numero;
+        	}
+
+        }
+        
+            Console.WriteLine("Maior número da lista: " + maiorNum);
+
+            Console.WriteLine("");
+            Console.WriteLine("Pressione qualquer tecla para fechar.");
+            Console.ReadKey();
+        }
+    }
+}
