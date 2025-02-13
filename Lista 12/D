@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicios
+{
+    class Program
+    {
+        public static void Main()
+        {
+        	
+        //Crie uma lista de strings e use o foreach para encontrar a string mais longa na lista.
+        
+        List <string> textos = new List<string>();
+        
+        textos.Add("Olá!");  
+        textos.Add("Hoje o dia está muito bonito, o céu está limpo e o clima é perfeito.");  
+        textos.Add("Bom dia!");  
+        textos.Add("Eu gosto de programar em C#.");  
+        textos.Add("Tchau!");
+     
+        
+        string textoMaior = textos[0];
+        
+        foreach(string texto in textos){
+        	
+        	if (texto.Length > textoMaior.Length){
+        		
+        		textoMaior = texto;
+        	}
+
+        }
+        
+            Console.WriteLine("String mais longa na lista:\n" + textoMaior);
+
+            Console.WriteLine("");
+            Console.WriteLine("Pressione qualquer tecla para fechar.");
+            Console.ReadKey();
+        }
+    }
+}
