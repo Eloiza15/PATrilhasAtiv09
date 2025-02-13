@@ -1,0 +1,62 @@
+using System;
+
+namespace Exercicios
+{
+        	
+//1. Exercício 1: Classe Calculadora
+//Crie uma classe chamada Calculadora que tenha métodos para realizar operações
+//matemáticas básicas, como soma, subtração, multiplicação e divisão.
+   
+class Calculadora {
+	 
+	public double somar (double a, double b){
+		
+		return a + b;
+	}
+	
+	public double subtrair (double a, double b){
+		
+		return a - b;
+	}
+	
+	public double multiplicar (double a, double b){
+		
+		return a * b;
+	}
+	
+	public double dividir (double a, double b){
+		
+		if (b == 0){
+			
+			return double.NaN;
+		}
+		
+		return a / b;
+	}
+}
+
+class Program
+    {
+        public static void Main()
+        {
+        
+        	Calculadora cal = new Calculadora();
+        	
+        	double soma = cal.somar(10,5);
+            double subtracao = cal.subtrair(10, 5);
+            double multiplicacao = cal.multiplicar(10, 5);
+            double divisao = cal.dividir(10, 5);
+            double divisaoPorZero = cal.dividir(10, 0);
+        
+            Console.WriteLine("Soma: " + soma);
+            Console.WriteLine("Subtração: " + subtracao);
+            Console.WriteLine("Multiplicação: " + multiplicacao);
+            Console.WriteLine("Divisão: " + divisao);
+            Console.WriteLine("Divisão por zero: " + divisaoPorZero);
+
+            Console.WriteLine("");
+            Console.WriteLine("Pressione qualquer tecla para fechar.");
+            Console.ReadKey();
+        }
+    }     
+}
