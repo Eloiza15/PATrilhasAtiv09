@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicios
+{
+    class Program
+    {
+        public static void Main()
+        {
+        	
+        //Crie uma lista de números e use o foreach para calcular a média dos números na lista.
+        
+        List <int> numeros = new List<int>();
+        
+        numeros.Add(10);
+        numeros.Add(25);
+        numeros.Add(33);
+        numeros.Add(18);
+        numeros.Add(50);
+     
+        
+        int soma = 0;
+        
+        foreach(int numero in numeros){
+        	soma += numero;
+        }
+        
+        double media = (double)soma / numeros.Count;
+        
+        Console.WriteLine("A média dos números na lista é: " + media);
+
+            Console.WriteLine("");
+            Console.WriteLine("Pressione qualquer tecla para fechar.");
+            Console.ReadKey();
+        }
+    }
+}
