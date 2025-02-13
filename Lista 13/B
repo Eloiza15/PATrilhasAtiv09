@@ -1,0 +1,115 @@
+using System;
+
+//2. Exercício 2: Classe Banco
+//Crie uma classe chamada Banco que represente um banco e tenha métodos para abrir
+//uma conta, fechar uma conta e realizar operações como depósito e saque.
+
+public class Banco {
+	
+	private decimal saldo;
+	private bool contaAberta;
+	
+	public Banco(){
+		
+        saldo = 0;
+        contaAberta = false;
+	}
+	
+	public void AbrirConta(){
+		
+		if (contaAberta){
+			
+		Console.WriteLine("A conta já está aberta.");		
+		
+		}else{
+			
+			contaAberta = true;
+			saldo = 0;
+			Console.WriteLine("Conta aberta com sucesso!");
+	
+		}
+	}
+	
+	public void FecharConta(){
+		
+		if (contaAberta){
+			if (saldo == 0){
+				
+				contaAberta = false;
+				Console.WriteLine("Conta fechada com sucesso!");
+			}else{
+				Console.WriteLine("Não é possível fechar a conta com saldo pendente.");
+			}
+		}else{
+			Console.WriteLine("Não há conta aberta para fechar.");
+		}
+	}
+	
+	public void Depositar(decimal valor){
+		
+		if (!contaAberta){
+			
+			Console.WriteLine("Nenhuma conta aberta para realizar o depósito.");
+            return;
+		}
+		
+		if (valor > 0){
+			
+			saldo += valor;
+			Console.WriteLine("Depósito de " + valor + " realizado. Saldo atual: " + saldo);
+			
+		}else{
+            Console.WriteLine("Valor inválido para depósito.");
+        }
+	}
+	
+	public void Sacar(decimal valor){
+		
+		if (!contaAberta){
+			
+			Console.WriteLine("Nenhuma conta aberta para realizar o saque.");
+			
+		}
+		
+		if (valor > 0 && valor <= saldo){
+			
+			saldo -= valor;
+			Console.WriteLine("Saque de " + valor + " realizado. Saldo atual: " + saldo);
+		}else{
+			
+			 Console.WriteLine("Saldo insuficiente ou valor inválido para saque.");
+		}
+	}
+	
+	public void MostrarSaldo(){
+		
+		if (!contaAberta){
+			
+			Console.WriteLine("Nenhuma conta aberta.");
+			return;
+		}
+		
+		Console.WriteLine("Saldo atual: " + saldo);
+	}
+}
+
+public class Exercicios
+{
+    public static void Main()
+   
+ {
+    	Banco banco = new Banco();
+    	
+    	banco.AbrirConta();
+    	
+    	banco.Depositar(1000);
+    	banco.Sacar(500);
+    	banco.MostrarSaldo();
+    	
+    	banco.FecharConta();
+    	
+        Console.WriteLine("");
+        Console.WriteLine("Pressione qualquer tecla para fechar.");
+        Console.ReadKey();
+    }
+}
