@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+namespace Exercicios
+{
+    class Program
+    {
+        public static void Main()
+        {
+        	
+        //Crie uma lista de strings e use o foreach para imprimir cada elemento na tela.
+        
+        List <string> textos = new List<string>();
+     
+            textos.Add("Primeiro texto");
+            textos.Add("Segundo texto");
+            textos.Add("Terceiro texto");
+            textos.Add("Quarto texto");
+            textos.Add("Quinto texto");
+        
+        Console.WriteLine("Textos da lista:\n");
+        
+        foreach(string texto in textos){
+
+        	Console.WriteLine(texto);
+        }
+
+            Console.WriteLine("");
+            Console.WriteLine("Pressione qualquer tecla para fechar.");
+            Console.ReadKey();
+        }
+    }
+}
