@@ -1,0 +1,58 @@
+using System;
+
+// Exercício 4: Classe Aluno
+// Crie uma classe chamada Aluno que represente um aluno de uma escola e tenha
+// métodos para calcular a média das notas e verificar se o aluno foi aprovado ou
+// reprovado.
+
+public class Aluno
+{
+    public string Nome { get; set; }
+    public int NotaUm { get; set; }
+    public int NotaDois { get; set; }
+
+    public Aluno(string nome, int notaUm, int notaDois)
+    {
+        Nome = nome;
+        NotaUm = notaUm;
+        NotaDois = notaDois;
+    }
+
+    public double CalcularMedia()
+    {
+        int soma = NotaUm + NotaDois;
+        return soma / 2.0; 
+    }
+
+   
+    public string Verificacao()
+    {
+        double media = CalcularMedia(); 
+
+        if (media < 6){
+            return "Aluno Reprovado!";
+        }
+        else{
+            return "Aluno Aprovado!"; 
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Aluno aluno = new Aluno("Eloiza", 10, 8);
+
+        double resultadoMedia = aluno.CalcularMedia();
+
+        string resultadoVerificacao = aluno.Verificacao();
+
+        Console.WriteLine("O aluno(a) " + aluno.Nome + " teve uma média de " + resultadoMedia + 
+                          " e sua situação é: " + resultadoVerificacao);
+
+        Console.WriteLine(""); 
+        Console.WriteLine("Pressione qualquer tecla para fechar.");
+        Console.ReadKey();
+    }
+}
