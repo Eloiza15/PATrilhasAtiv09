@@ -1,0 +1,43 @@
+using System;
+
+//Exercício 3: Classe Produto
+//Crie uma classe chamada Produto que represente um produto em uma loja e tenha
+//métodos para calcular o valor total do produto com base na quantidade e preço
+//unitário.
+
+public class Produto {
+	
+	public string Nome {get; set;}
+	public int Quantidade {get; set;}
+	public decimal PrecoUnitario {get; set;}
+	
+	public Produto (string nome, int quantidade, decimal precoUnitario){
+		
+		Nome = nome;
+        Quantidade = quantidade;
+        PrecoUnitario = precoUnitario;
+	}
+	
+	public decimal CalcularValorTotal(){
+		
+		return Quantidade*PrecoUnitario;
+	}
+	
+}
+
+public class Program 
+{
+	public static void Main()
+	{
+		
+		Produto produto = new Produto ("Vestido" , 5 , 56.99m);
+		
+		decimal valorTotal = produto.CalcularValorTotal();
+		
+		Console.WriteLine("O valor total de " + produto.Quantidade + " " + produto.Nome + "(s) é: R$ " + valorTotal);
+		
+        Console.WriteLine("");
+        Console.WriteLine("Pressione qualquer tecla para fechar.");
+        Console.ReadKey();
+    }
+}
