@@ -1,0 +1,68 @@
+using System;
+
+//5. Exercício 5: Classe Livro
+//Crie uma classe chamada Livro que represente um livro e tenha métodos para
+//verificar se o livro está disponível para empréstimo e para realizar um empréstimo.
+
+public class Livro
+{
+    public string Titulo { get; set; }
+    public string Autor { get; set; }
+    public bool Disponivel { get; set; }
+
+    public Livro(string titulo, string autor, bool disponivel)
+    {
+        Titulo = titulo;
+        Autor = autor;
+        Disponivel = disponivel;
+    }
+
+    public bool VerificarDisponibilidade()
+    {
+    	return Disponivel;
+    }
+
+   
+    public string RealizarEmprestimo()
+    {
+    	if (Disponivel){
+    		
+    		Disponivel = false;
+    		return ("Empréstimo do livro " + Titulo + " realizado com sucesso!");
+    		
+    	}else{
+    		
+    		return ("O livro " + Titulo + " não está disponível para empréstimo no momento.");
+    	}
+    } 
+    
+    public void DevolverLivro()
+    {
+    	Disponivel = true;
+    	Console.WriteLine("O livro " + Titulo + " foi devolvido e agora está disponível para empréstimo.");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+    	Livro livroUm = new Livro ("Os Sete Maridos de Evelyn Hugo", "Taylor Jenkins Reid", true);
+        	
+        Console.WriteLine("O livro " + livroUm.Titulo + " está disponível? " + livroUm.VerificarDisponibilidade());	
+        
+        string emprestimo = livroUm.RealizarEmprestimo();
+        Console.WriteLine(emprestimo);	
+        
+        string emprestimoDois = livroUm.RealizarEmprestimo();
+        Console.WriteLine(emprestimoDois);
+        
+        livroUm.DevolverLivro();
+        
+        Console.WriteLine("O livro " + livroUm.Titulo + " está disponível? " + livroUm.VerificarDisponibilidade());
+        	
+        Console.WriteLine(""); 
+        Console.WriteLine("Pressione qualquer tecla para fechar.");
+        Console.ReadKey();
+    }
+}
