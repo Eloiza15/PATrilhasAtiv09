@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+
+//Exercício 9: Classe Agenda
+//Crie uma classe chamada Agenda que represente uma agenda de contatos e tenha
+//métodos para adicionar contatos, remover contatos e buscar contatos por nome.
+	
+public class Agenda
+{
+    private List<string[]> contatos;
+
+    public Agenda()
+    {
+        contatos = new List<string[]>();
+    }
+
+    public void AdicionarContato(string nome, string telefone)
+    {
+        contatos.Add(new string[] { nome, telefone });
+        Console.WriteLine("Contato adicionado com sucesso.");
+    }
+
+    public void BuscarContato(string nome)
+    {
+        foreach (var contato in contatos)
+        {
+            if (contato[0] == nome)
+            {
+            	Console.WriteLine("Contato encontrado: " + contato[0] + " - " + contato[1]);
+                return;
+            }
+        }
+        Console.WriteLine("Contato não encontrado.");
+    }
+
+    public void RemoverContato(string nome)
+    {
+        for (int i = 0; i < contatos.Count; i++)
+        {
+            if (contatos[i][0] == nome)
+            {
+                contatos.RemoveAt(i);
+                Console.WriteLine("Contato removido com sucesso.");
+                return;
+            }
+        }
+        Console.WriteLine("Contato não encontrado.");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Agenda minhaAgenda = new Agenda();
+
+        minhaAgenda.AdicionarContato("Eloiza", "1234-5678");
+        minhaAgenda.AdicionarContato("Yago", "9876-5432");
+
+        minhaAgenda.BuscarContato("Eloiza");
+
+        minhaAgenda.RemoverContato("Yago");
+
+        minhaAgenda.BuscarContato("Yago");
+        
+        Console.WriteLine(""); 
+        Console.WriteLine("Pressione qualquer tecla para fechar.");
+        Console.ReadKey();
+    }
+}
